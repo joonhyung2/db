@@ -19,3 +19,19 @@ from employee
 #order by SAL_LEVEL asc, SALARY desc;
 # 보너스로 오름차순 정렬, null 은 뒤에 정렬
 order by bonus is null asc, bonus asc;
+
+# top n 구문
+# 쿼리의 결과중 상위 n 개의 결과만 받아보는 구문
+#limit START, LIMIT END	
+#limit 5 == limit 0,5 출력할 갯수
+#employee 테이블에서 급여 순위 1~5등 뽑기
+select emp_name, salary
+from employee
+order by salary desc
+limit 0, 5;
+#employee 테이블에서 가장 최근에 입사한 사원 5명
+
+select emp_name, salary,HIRE_DATE
+from employee
+order by HIRE_DATE desc
+limit 0,5;
